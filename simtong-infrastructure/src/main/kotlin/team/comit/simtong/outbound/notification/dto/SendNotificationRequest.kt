@@ -18,7 +18,7 @@ data class SendNotificationRequest(
 
     val type: NotificationType,
 
-    val identify: UUID,
+    val identify: UUID?,
 
-    val token: String
+    val userId: UUID
 )

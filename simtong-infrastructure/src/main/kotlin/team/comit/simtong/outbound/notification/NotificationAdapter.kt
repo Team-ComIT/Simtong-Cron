@@ -24,8 +24,8 @@ class NotificationAdapter(
         title: String,
         content: String,
         type: NotificationType,
-        identify: UUID,
-        token: String
+        identify: UUID?,
+        userId: UUID
     ) {
         notificationClient.sendNotification(
             SendNotificationRequest(
@@ -33,7 +33,7 @@ class NotificationAdapter(
                 content = content,
                 type = type,
                 identify = identify,
-                token = token
+                userId = userId
             )
         )
     }
@@ -42,8 +42,8 @@ class NotificationAdapter(
         title: String,
         content: String,
         type: NotificationType,
-        identify: UUID,
-        tokens: List<String>
+        identify: UUID?,
+        userIds: List<UUID>
     ) {
         notificationClient.sendMulticastNotification(
             SendMulticastNotificationRequest(
@@ -51,7 +51,7 @@ class NotificationAdapter(
                 content = content,
                 type = type,
                 identify = identify,
-                tokens = tokens
+                userIds = userIds
             )
         )
     }

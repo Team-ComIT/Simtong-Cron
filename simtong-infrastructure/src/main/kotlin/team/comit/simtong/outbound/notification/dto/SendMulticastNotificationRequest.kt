@@ -18,7 +18,7 @@ data class SendMulticastNotificationRequest(
 
     val type: NotificationType,
 
-    val identify: UUID,
+    val identify: UUID?,
 
-    val tokens: List<String>
+    val userIds: List<UUID>
 )
