@@ -15,4 +15,6 @@ import java.util.UUID
  **/
 @Repository
 interface UserJpaRepository : CrudRepository<UserJpaEntity, UUID> {
+
+    fun queryUserJpaEntitiesBySpotId(spotId: UUID) : List<UserJpaEntity>
 }
