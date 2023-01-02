@@ -13,8 +13,20 @@ import java.util.UUID
  **/
 interface ScheduleSendNotificationPort {
 
-    fun sendMessage(title: String, content: String, type: NotificationType, identify: UUID? = null, userId: UUID)
+    fun sendMessage(
+        title: String,
+        content: String,
+        type: NotificationType,
+        identify: UUID? = null,
+        userId: UUID
+    )
 
-    fun sendMulticastMessage(title: String, content: String, type: NotificationType, identify: UUID? = null, userIds: List<UUID>)
+    fun sendMulticastMessage(
+        title: String,
+        content: String,
+        type: NotificationType,
+        identify: UUID? = null,
+        userIds: List<UUID>
+    )
 
 }
