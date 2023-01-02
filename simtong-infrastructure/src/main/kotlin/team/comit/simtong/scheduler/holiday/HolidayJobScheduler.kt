@@ -16,7 +16,7 @@ import team.comit.simtong.scheduler.CronExpressions
 class HolidayJobScheduler {
 
     @Scheduled(cron = CronExpressions.EVERYDAY_12_30)
-    fun noticeHolidayPeriodDeadline() {
+    fun noticeDueDateHolidayPeriod() {
 
     }
 

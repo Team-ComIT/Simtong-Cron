@@ -3,6 +3,9 @@ server:
   shutdown: graceful
 
 spring:
+  main:
+    web-application-type: NONE
+
   lifecycle:
     timeout-per-shutdown-phase: "60s"
 
@@ -34,7 +37,7 @@ spring:
     scheduling:
       pool:
         size: 8
-      thread-name-prefix: simtong-scheduler
+      thread-name-prefix: simtong-scheduler-
 
 feign:
   client:

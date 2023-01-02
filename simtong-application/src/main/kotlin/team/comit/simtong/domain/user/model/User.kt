@@ -1,7 +1,6 @@
 package team.comit.simtong.domain.user.model
 
 import team.comit.simtong.global.annotation.Aggregate
-import java.time.LocalDateTime
 import java.util.UUID
 
 /**
@@ -32,9 +31,7 @@ data class User(
 
     val spotId: UUID,
 
-    val teamId: UUID,
-
-    val deleteAt: LocalDateTime?
+    val teamId: UUID
 ) {
 
     /**

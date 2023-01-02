@@ -36,8 +36,8 @@ object CronExpressions {
     const val EVERYDAY_12 = "0 0 12 * * *"
 
     /**
-     * 항상 (1분마다)
+     * 1분마다
      */
-    const val ALWAYS = "* * * * * *"
+    const val ONE_MINUTES = "0 * * * * *"
 
 }
