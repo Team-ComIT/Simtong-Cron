@@ -32,9 +32,7 @@ data class User(
 
     val spotId: UUID,
 
-    val teamId: UUID,
-
-    val deleteAt: LocalDateTime?
+    val teamId: UUID
 ) {
 
     /**
