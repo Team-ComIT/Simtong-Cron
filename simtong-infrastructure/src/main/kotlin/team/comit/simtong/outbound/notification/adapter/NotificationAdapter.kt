@@ -1,8 +1,9 @@
-package team.comit.simtong.outbound.notification
+package team.comit.simtong.outbound.notification.adapter
 
 import org.springframework.stereotype.Component
 import team.comit.simtong.domain.notification.NotificationType
 import team.comit.simtong.domain.schedule.outbound.port.ScheduleSendNotificationPort
+import team.comit.simtong.outbound.notification.port.NotificationClient
 import team.comit.simtong.outbound.notification.dto.SendMulticastNotificationRequest
 import team.comit.simtong.outbound.notification.dto.SendNotificationRequest
 import java.util.UUID
