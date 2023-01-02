@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import team.comit.simtong.domain.schedule.model.Schedule
 import team.comit.simtong.persistence.GenericMapper
 import team.comit.simtong.persistence.schedule.entity.ScheduleJpaEntity
-import team.comit.simtong.persistence.spot.SpotJpaRepository
+import team.comit.simtong.persistence.spot.repository.SpotJpaRepository
 import team.comit.simtong.persistence.user.repository.UserJpaRepository
 
 /**

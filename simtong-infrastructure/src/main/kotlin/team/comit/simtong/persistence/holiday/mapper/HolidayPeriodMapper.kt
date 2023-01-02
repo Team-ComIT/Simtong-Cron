@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import team.comit.simtong.domain.holiday.model.HolidayPeriod
 import team.comit.simtong.persistence.GenericMapper
 import team.comit.simtong.persistence.holiday.entity.HolidayPeriodJpaEntity
-import team.comit.simtong.persistence.spot.SpotJpaRepository
+import team.comit.simtong.persistence.spot.repository.SpotJpaRepository
 
 /**
  *

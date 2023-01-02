@@ -6,8 +6,8 @@ import org.mapstruct.Mappings
 import org.springframework.beans.factory.annotation.Autowired
 import team.comit.simtong.domain.user.model.User
 import team.comit.simtong.persistence.GenericMapper
-import team.comit.simtong.persistence.spot.SpotJpaRepository
-import team.comit.simtong.persistence.team.TeamJpaRepository
+import team.comit.simtong.persistence.spot.repository.SpotJpaRepository
+import team.comit.simtong.persistence.team.repository.TeamJpaRepository
 import team.comit.simtong.persistence.user.entity.UserJpaEntity
 
 /**

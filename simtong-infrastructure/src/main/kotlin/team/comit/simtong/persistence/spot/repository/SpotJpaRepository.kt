@@ -1,4 +1,4 @@
-package team.comit.simtong.persistence.spot
+package team.comit.simtong.persistence.spot.repository
 
 import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Repository
