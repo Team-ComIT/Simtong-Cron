@@ -1,4 +1,4 @@
-package team.comit.simtong.outbound.notification.dto
+package team.comit.simtong.firstparty.notification.dto
 
 import team.comit.simtong.domain.notification.NotificationType
 import java.util.UUID
