@@ -2,7 +2,7 @@ package team.comit.simtong.outbound.notification
 
 import org.springframework.stereotype.Component
 import team.comit.simtong.domain.notification.NotificationType
-import team.comit.simtong.domain.notification.spi.NotificationPort
+import team.comit.simtong.domain.schedule.outbound.port.ScheduleSendNotificationPort
 import team.comit.simtong.outbound.notification.dto.SendMulticastNotificationRequest
 import team.comit.simtong.outbound.notification.dto.SendNotificationRequest
 import java.util.UUID
@@ -18,7 +18,7 @@ import java.util.UUID
 @Component
 class NotificationAdapter(
     private val notificationClient: NotificationClient
-) : NotificationPort {
+) : ScheduleSendNotificationPort {
 
     override fun sendMessage(
         title: String,

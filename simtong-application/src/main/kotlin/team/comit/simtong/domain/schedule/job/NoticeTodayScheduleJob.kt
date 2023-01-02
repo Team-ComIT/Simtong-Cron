@@ -2,14 +2,13 @@ package team.comit.simtong.domain.schedule.job
 
 import team.comit.simtong.domain.notification.NotificationType
 import team.comit.simtong.domain.schedule.model.Schedule
-import team.comit.simtong.domain.schedule.spi.QuerySchedulePort
-import team.comit.simtong.domain.schedule.spi.ScheduleNotificationPort
-import team.comit.simtong.domain.schedule.spi.ScheduleQueryUserPort
+import team.comit.simtong.domain.schedule.outbound.port.QuerySchedulePort
+import team.comit.simtong.domain.schedule.outbound.port.ScheduleSendNotificationPort
+import team.comit.simtong.domain.schedule.outbound.port.ScheduleQueryUserPort
 import team.comit.simtong.domain.user.model.User
 import team.comit.simtong.global.annotation.ReadOnlyJob
 import java.time.LocalDate
 import java.time.LocalTime
-import java.util.UUID
 
 /**
  *
@@ -23,7 +22,7 @@ import java.util.UUID
 class NoticeTodayScheduleJob(
     private val querySchedulePort: QuerySchedulePort,
     private val queryUserPort: ScheduleQueryUserPort,
-    private val notificationPort: ScheduleNotificationPort
+    private val notificationPort: ScheduleSendNotificationPort
 ) {
 
     fun execute() {

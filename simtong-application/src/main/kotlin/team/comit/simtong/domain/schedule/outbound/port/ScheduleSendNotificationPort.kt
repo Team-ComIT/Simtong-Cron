@@ -1,17 +1,17 @@
-package team.comit.simtong.domain.schedule.spi
+package team.comit.simtong.domain.schedule.outbound.port
 
 import team.comit.simtong.domain.notification.NotificationType
 import java.util.UUID
 
 /**
  *
- * 일정 작업에서 알림에 관해 요청하는 ScheduleNotificationPort
+ * 일정 작업에서 알림 전송을 요청하는 ScheduleNotificationPort
  *
  * @author Chokyunghyeon
  * @date 2022/12/29
  * @version 1.0.0
  **/
-interface ScheduleNotificationPort {
+interface ScheduleSendNotificationPort {
 
     fun sendMessage(title: String, content: String, type: NotificationType, identify: UUID? = null, userId: UUID)
 

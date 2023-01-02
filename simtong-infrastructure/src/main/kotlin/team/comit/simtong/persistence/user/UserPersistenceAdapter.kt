@@ -1,11 +1,11 @@
 package team.comit.simtong.persistence.user
 
 import org.springframework.stereotype.Component
+import team.comit.simtong.domain.schedule.outbound.port.ScheduleQueryUserPort
 import team.comit.simtong.domain.user.model.User
-import team.comit.simtong.domain.user.spi.UserPort
 import team.comit.simtong.persistence.user.mapper.UserMapper
 import team.comit.simtong.persistence.user.repository.UserJpaRepository
-import java.util.*
+import java.util.UUID
 
 /**
  *
@@ -19,7 +19,7 @@ import java.util.*
 class UserPersistenceAdapter(
     private val userJpaRepository: UserJpaRepository,
     private val userMapper: UserMapper
-) : UserPort {
+) : ScheduleQueryUserPort {
 
     override fun queryUsersBySpotId(spotId: UUID): List<User> {
         return userJpaRepository.queryUserJpaEntitiesBySpotId(spotId)
