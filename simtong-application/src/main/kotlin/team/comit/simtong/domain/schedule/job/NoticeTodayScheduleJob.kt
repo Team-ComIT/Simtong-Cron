@@ -22,7 +22,7 @@ import java.time.LocalTime
 class NoticeTodayScheduleJob(
     private val querySchedulePort: QuerySchedulePort,
     private val queryUserPort: ScheduleQueryUserPort,
-    private val notificationPort: ScheduleSendNotificationPort
+    private val sendNotificationPort: ScheduleSendNotificationPort
 ) {
 
     fun execute() {
@@ -35,7 +35,7 @@ class NoticeTodayScheduleJob(
         val entireSchedules: List<Schedule> = schedules.filter { it.scope == Schedule.Scope.ENTIRE }
 
         individualSchedules.forEach { schedule: Schedule ->
-            notificationPort.sendMessage(
+            sendNotificationPort.sendMessage(
                 title = "",
                 content = "오늘 ${today.month}월 ${today.dayOfMonth}일 \"${schedule.title}\" 개인 일정이 있습니다.",
                 type = NotificationType.SCHEDULE,
@@ -46,7 +46,7 @@ class NoticeTodayScheduleJob(
         entireSchedules.forEach { schedule: Schedule ->
             val employees: List<User> = queryUserPort.queryUsersBySpotId(schedule.spotId)
 
-            notificationPort.sendMulticastMessage(
+            sendNotificationPort.sendMulticastMessage(
                 title = "",
                 content = "오늘 ${today.month}월 ${today.dayOfMonth}일 \"${schedule.title}\" 지점 일정이 있습니다.",
                 type = NotificationType.SCHEDULE,

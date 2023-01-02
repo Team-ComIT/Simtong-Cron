@@ -22,7 +22,7 @@ import java.util.UUID
 class NoticeTomorrowScheduleJob(
     private val querySchedulePort: QuerySchedulePort,
     private val queryUserPort: ScheduleQueryUserPort,
-    private val notificationPort: ScheduleSendNotificationPort
+    private val sendNotificationPort: ScheduleSendNotificationPort
 ) {
 
     fun execute() {
@@ -47,7 +47,7 @@ class NoticeTomorrowScheduleJob(
                 else -> "내일 ${tomorrow.month}월 ${tomorrow.dayOfMonth}일 \"${firstSchedule.title}\" 외 ${schedules.size - 1}개의 개인 일정이 있습니다."
             }
 
-            notificationPort.sendMessage(
+            sendNotificationPort.sendMessage(
                 title = "",
                 content = message,
                 type = NotificationType.SCHEDULE,
@@ -66,7 +66,7 @@ class NoticeTomorrowScheduleJob(
                 else -> "내일 ${tomorrow.month}월 ${tomorrow.dayOfMonth}일 \"${firstSchedule.title}\" 외 ${schedules.size - 1}개의 지점 일정이 있습니다."
             }
 
-            notificationPort.sendMulticastMessage(
+            sendNotificationPort.sendMulticastMessage(
                 title = "",
                 content = message,
                 type = NotificationType.SCHEDULE,
