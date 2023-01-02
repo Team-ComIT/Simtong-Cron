@@ -4,12 +4,11 @@ import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Component
 import team.comit.simtong.domain.schedule.job.NoticeTodayScheduleJob
 import team.comit.simtong.domain.schedule.job.NoticeTomorrowScheduleJob
-import team.comit.simtong.domain.schedule.model.Schedule
 import team.comit.simtong.scheduler.CronExpressions
 
 /**
  *
- * 일정에 관한 작업을 담당하는 ScheduleNoticeScheduler
+ * 일정에 관한 작업을 담당하는 ScheduleJobScheduler
  *
  * @author Chokyunghyeon
  * @date 2022/12/27
@@ -26,7 +25,7 @@ class ScheduleJobScheduler(
         noticeTomorrowScheduleJob.execute()
     }
 
-    @Scheduled(cron = CronExpressions.ALWAYS)
+    @Scheduled(cron = CronExpressions.ONE_MINUTES)
     fun scheduleAlarmNotification() {
         noticeTodayScheduleJob.execute()
     }
