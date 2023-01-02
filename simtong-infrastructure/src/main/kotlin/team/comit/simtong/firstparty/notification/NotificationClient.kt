@@ -1,12 +1,12 @@
-package team.comit.simtong.outbound.notification.port
+package team.comit.simtong.firstparty.notification
 
 import org.springframework.cloud.openfeign.FeignClient
 import org.springframework.stereotype.Component
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
-import team.comit.simtong.outbound.FeignClientUrls
-import team.comit.simtong.outbound.notification.dto.SendMulticastNotificationRequest
-import team.comit.simtong.outbound.notification.dto.SendNotificationRequest
+import team.comit.simtong.firstparty.FeignClientUrls
+import team.comit.simtong.firstparty.notification.dto.SendMulticastNotificationRequest
+import team.comit.simtong.firstparty.notification.dto.SendNotificationRequest
 
 /**
  *
