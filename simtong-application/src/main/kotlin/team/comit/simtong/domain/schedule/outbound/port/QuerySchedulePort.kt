@@ -1,4 +1,4 @@
-package team.comit.simtong.domain.schedule.spi
+package team.comit.simtong.domain.schedule.outbound.port
 
 import team.comit.simtong.domain.schedule.model.Schedule
 import java.time.LocalDate

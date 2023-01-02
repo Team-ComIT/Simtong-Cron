@@ -2,10 +2,10 @@ package team.comit.simtong.domain.schedule.job
 
 import team.comit.simtong.domain.notification.NotificationType
 import team.comit.simtong.domain.schedule.model.Schedule
-import team.comit.simtong.domain.schedule.spi.QuerySchedulePort
-import team.comit.simtong.domain.schedule.spi.ScheduleNotificationPort
-import team.comit.simtong.domain.schedule.spi.ScheduleQueryDeviceTokenPort
-import team.comit.simtong.domain.user.model.DeviceToken
+import team.comit.simtong.domain.schedule.outbound.port.QuerySchedulePort
+import team.comit.simtong.domain.schedule.outbound.port.ScheduleSendNotificationPort
+import team.comit.simtong.domain.schedule.outbound.port.ScheduleQueryUserPort
+import team.comit.simtong.domain.user.model.User
 import team.comit.simtong.global.annotation.ReadOnlyJob
 import java.time.LocalDate
 import java.time.LocalTime
@@ -21,8 +21,8 @@ import java.time.LocalTime
 @ReadOnlyJob
 class NoticeTodayScheduleJob(
     private val querySchedulePort: QuerySchedulePort,
-    private val queryDeviceTokenPort: ScheduleQueryDeviceTokenPort,
-    private val notificationPort: ScheduleNotificationPort
+    private val queryUserPort: ScheduleQueryUserPort,
+    private val sendNotificationPort: ScheduleSendNotificationPort
 ) {
 
     fun execute() {
@@ -35,29 +35,23 @@ class NoticeTodayScheduleJob(
         val entireSchedules: List<Schedule> = schedules.filter { it.scope == Schedule.Scope.ENTIRE }
 
         individualSchedules.forEach { schedule: Schedule ->
-            val deviceToken: DeviceToken? = queryDeviceTokenPort.queryDeviceTokenByUserId(schedule.userId)
-
-            deviceToken?.let {
-                notificationPort.sendMessage(
-                    title = "",
-                    content = "오늘 ${today.month}월 ${today.dayOfMonth}일 \"${schedule.title}\" 개인 일정이 있습니다.",
-                    type = NotificationType.SCHEDULE,
-                    identify = schedule.id,
-                    token = it.token
-                )
-            }
+            sendNotificationPort.sendMessage(
+                title = "오늘의 일정이에요!",
+                content = "오늘 ${today.month}월 ${today.dayOfMonth}일 \"${schedule.title}\" 개인 일정이 있습니다.",
+                type = NotificationType.SCHEDULE,
+                userId = schedule.userId
+            )
         }
 
         entireSchedules.forEach { schedule: Schedule ->
-            val deviceToken: List<DeviceToken> = queryDeviceTokenPort
-                .querySpotEmployeeDeviceTokensBySpotId(schedule.userId)
+            val employees: List<User> = queryUserPort.queryUsersBySpotId(schedule.spotId)
 
-            notificationPort.sendMulticastMessage(
-                title = "",
+            sendNotificationPort.sendMulticastMessage(
+                title = "오늘의 전체 일정이에요!",
                 content = "오늘 ${today.month}월 ${today.dayOfMonth}일 \"${schedule.title}\" 지점 일정이 있습니다.",
                 type = NotificationType.SCHEDULE,
                 identify = schedule.id,
-                tokens = deviceToken.map(DeviceToken::token)
+                userIds = employees.map(User::id)
             )
         }
     }

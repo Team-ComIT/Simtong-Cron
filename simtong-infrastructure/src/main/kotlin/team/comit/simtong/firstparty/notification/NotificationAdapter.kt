@@ -1,10 +1,10 @@
-package team.comit.simtong.outbound.notification
+package team.comit.simtong.firstparty.notification
 
 import org.springframework.stereotype.Component
 import team.comit.simtong.domain.notification.NotificationType
-import team.comit.simtong.domain.notification.spi.NotificationPort
-import team.comit.simtong.outbound.notification.dto.SendMulticastNotificationRequest
-import team.comit.simtong.outbound.notification.dto.SendNotificationRequest
+import team.comit.simtong.domain.schedule.outbound.port.ScheduleSendNotificationPort
+import team.comit.simtong.firstparty.notification.dto.SendMulticastNotificationRequest
+import team.comit.simtong.firstparty.notification.dto.SendNotificationRequest
 import java.util.UUID
 
 /**
@@ -18,14 +18,14 @@ import java.util.UUID
 @Component
 class NotificationAdapter(
     private val notificationClient: NotificationClient
-) : NotificationPort {
+) : ScheduleSendNotificationPort {
 
     override fun sendMessage(
         title: String,
         content: String,
         type: NotificationType,
-        identify: UUID,
-        token: String
+        identify: UUID?,
+        userId: UUID
     ) {
         notificationClient.sendNotification(
             SendNotificationRequest(
@@ -33,7 +33,7 @@ class NotificationAdapter(
                 content = content,
                 type = type,
                 identify = identify,
-                token = token
+                userId = userId
             )
         )
     }
@@ -42,8 +42,8 @@ class NotificationAdapter(
         title: String,
         content: String,
         type: NotificationType,
-        identify: UUID,
-        tokens: List<String>
+        identify: UUID?,
+        userIds: List<UUID>
     ) {
         notificationClient.sendMulticastNotification(
             SendMulticastNotificationRequest(
@@ -51,7 +51,7 @@ class NotificationAdapter(
                 content = content,
                 type = type,
                 identify = identify,
-                tokens = tokens
+                userIds = userIds
             )
         )
     }

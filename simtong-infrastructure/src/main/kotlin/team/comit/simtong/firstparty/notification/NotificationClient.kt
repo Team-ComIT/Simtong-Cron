@@ -1,13 +1,12 @@
-package team.comit.simtong.outbound.notification
+package team.comit.simtong.firstparty.notification
 
 import org.springframework.cloud.openfeign.FeignClient
 import org.springframework.stereotype.Component
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import team.comit.simtong.global.config.FeignConfig
-import team.comit.simtong.outbound.notification.dto.SendMulticastNotificationRequest
-import team.comit.simtong.outbound.notification.dto.SendNotificationRequest
+import team.comit.simtong.firstparty.FeignClientUrls
+import team.comit.simtong.firstparty.notification.dto.SendMulticastNotificationRequest
+import team.comit.simtong.firstparty.notification.dto.SendNotificationRequest
 
 /**
  *
@@ -18,8 +17,11 @@ import team.comit.simtong.outbound.notification.dto.SendNotificationRequest
  * @version 1.0.0
  **/
 @Component
-@RequestMapping("/notifications")
-@FeignClient(url = FeignClientUrls.NOTIFICATION_SERVER)
+@FeignClient(
+    name = "notification-client",
+    url = FeignClientUrls.NOTIFICATION_SERVER,
+    path = "/notifications"
+)
 interface NotificationClient {
 
     @PostMapping

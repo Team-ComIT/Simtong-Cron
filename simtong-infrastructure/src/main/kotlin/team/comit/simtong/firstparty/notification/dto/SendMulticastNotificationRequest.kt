@@ -1,4 +1,4 @@
-package team.comit.simtong.outbound.notification.dto
+package team.comit.simtong.firstparty.notification.dto
 
 import team.comit.simtong.domain.notification.NotificationType
 import java.util.UUID
@@ -18,7 +18,7 @@ data class SendMulticastNotificationRequest(
 
     val type: NotificationType,
 
-    val identify: UUID,
+    val identify: UUID?,
 
-    val tokens: List<String>
+    val userIds: List<UUID>
 )
