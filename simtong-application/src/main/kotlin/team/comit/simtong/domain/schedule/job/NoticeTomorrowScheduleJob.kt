@@ -48,7 +48,7 @@ class NoticeTomorrowScheduleJob(
             }
 
             sendNotificationPort.sendMessage(
-                title = "",
+                title = "내일의 일정이에요!",
                 content = message,
                 type = NotificationType.SCHEDULE,
                 userId = userId
@@ -67,7 +67,7 @@ class NoticeTomorrowScheduleJob(
             }
 
             sendNotificationPort.sendMulticastMessage(
-                title = "",
+                title = "내일의 전체 일정이에요!",
                 content = message,
                 type = NotificationType.SCHEDULE,
                 userIds = employees.map(User::id)
