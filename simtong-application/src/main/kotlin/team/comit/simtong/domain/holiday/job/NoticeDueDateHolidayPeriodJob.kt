@@ -1,5 +1,6 @@
 package team.comit.simtong.domain.holiday.job
 
+import team.comit.simtong.domain.holiday.model.HolidayPeriod
 import team.comit.simtong.domain.holiday.outbound.port.HolidayPeriodQueryUserPort
 import team.comit.simtong.domain.holiday.outbound.port.HolidayPeriodSendNotificationPort
 import team.comit.simtong.domain.holiday.outbound.port.QueryHolidayPeriodPort
@@ -24,10 +25,10 @@ class NoticeDueDateHolidayPeriodJob(
 ) {
 
     fun execute() {
-        val holidayPeriods = queryHolidayPeriodPort.queryHolidayPeriodsByEndAt(LocalDate.now())
+        val holidayPeriods: List<HolidayPeriod> = queryHolidayPeriodPort.queryHolidayPeriodsByEndAt(LocalDate.now())
 
         holidayPeriods.forEach {
-            val users = queryUserPort.queryUsersBySpotId(it.spotId)
+            val users: List<User> = queryUserPort.queryUsersBySpotId(it.spotId)
 
             sendNotificationPort.sendMulticastMessage(
                 title = "휴무표 작성 마감일이에요!",
