@@ -13,5 +13,5 @@ import java.time.LocalDate
  **/
 interface QueryHolidayPeriodPort {
 
-    fun queryHolidayPeriodsByDueDate(dueDate: LocalDate): List<HolidayPeriod>
+    fun queryHolidayPeriodsByEndAt(endAt: LocalDate): List<HolidayPeriod>
 }

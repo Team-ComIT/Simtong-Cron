@@ -3,6 +3,7 @@ package team.comit.simtong.persistence.holiday.repository
 import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Repository
 import team.comit.simtong.persistence.holiday.entity.HolidayPeriodJpaEntity
+import java.time.LocalDate
 
 /**
  *
@@ -14,4 +15,7 @@ import team.comit.simtong.persistence.holiday.entity.HolidayPeriodJpaEntity
  **/
 @Repository
 interface HolidayPeriodJpaRepository : CrudRepository<HolidayPeriodJpaEntity, HolidayPeriodJpaEntity.Id> {
+
+    fun queryHolidayPeriodJpaEntitiesByEndAt(endAt: LocalDate): List<HolidayPeriodJpaEntity>
+
 }

@@ -24,7 +24,7 @@ class NoticeDueDateHolidayPeriodJob(
 ) {
 
     fun execute() {
-        val holidayPeriods = queryHolidayPeriodPort.queryHolidayPeriodsByDueDate(LocalDate.now())
+        val holidayPeriods = queryHolidayPeriodPort.queryHolidayPeriodsByEndAt(LocalDate.now())
 
         holidayPeriods.forEach {
             val users = queryUserPort.queryUsersBySpotId(it.spotId)
