@@ -5,6 +5,7 @@ import com.querydsl.jpa.impl.JPAQueryFactory
 import org.springframework.stereotype.Component
 import team.comit.simtong.domain.schedule.model.Schedule
 import team.comit.simtong.domain.schedule.outbound.port.QuerySchedulePort
+import team.comit.simtong.global.extension.CollectionExtensionUtils.mapNonNull
 import team.comit.simtong.persistence.schedule.mapper.ScheduleMapper
 import java.time.LocalDate
 import java.time.LocalTime
@@ -30,7 +31,7 @@ class SchedulePersistenceAdapter(
                 schedule.endAt.loe(date)
             )
             .fetch()
-            .mapNotNull(scheduleMapper::toDomain)
+            .mapNonNull(scheduleMapper::toDomain)
     }
 
     override fun queryScheduleByDateAndAlarmTime(
@@ -44,7 +45,7 @@ class SchedulePersistenceAdapter(
                 schedule.alarmTime.eq(alarmTime)
             )
             .fetch()
-            .mapNotNull(scheduleMapper::toDomain)
+            .mapNonNull(scheduleMapper::toDomain)
     }
 
 
