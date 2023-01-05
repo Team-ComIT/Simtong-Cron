@@ -3,7 +3,6 @@ package team.comit.simtong.persistence.holiday
 import org.springframework.stereotype.Component
 import team.comit.simtong.domain.holiday.model.HolidayPeriod
 import team.comit.simtong.domain.holiday.outbound.port.QueryHolidayPeriodPort
-import team.comit.simtong.global.extension.CollectionExtensionUtils.mapNonNull
 import team.comit.simtong.persistence.holiday.mapper.HolidayPeriodMapper
 import team.comit.simtong.persistence.holiday.repository.HolidayPeriodJpaRepository
 import java.time.LocalDate
@@ -24,7 +23,7 @@ class HolidayPeriodPersistenceAdapter(
 
     override fun queryHolidayPeriodsByEndAt(endAt: LocalDate): List<HolidayPeriod> {
         return holidayPeriodJpaRepository.queryHolidayPeriodJpaEntitiesByEndAt(endAt)
-            .mapNonNull(holidayPeriodMapper::toDomain)
+            .map(holidayPeriodMapper::toDomainNotNull)
     }
 
 }

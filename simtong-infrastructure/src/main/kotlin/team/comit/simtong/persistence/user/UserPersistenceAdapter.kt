@@ -24,7 +24,7 @@ class UserPersistenceAdapter(
 
     override fun queryUsersBySpotId(spotId: UUID): List<User> {
         return userJpaRepository.queryUserJpaEntitiesBySpotId(spotId)
-            .mapNonNull(userMapper::toDomain)
+            .map(userMapper::toDomainNotNull)
     }
 
 }

@@ -31,7 +31,7 @@ class SchedulePersistenceAdapter(
                 schedule.endAt.loe(date)
             )
             .fetch()
-            .mapNonNull(scheduleMapper::toDomain)
+            .map(scheduleMapper::toDomainNotNull)
     }
 
     override fun queryScheduleByDateAndAlarmTime(
@@ -45,7 +45,7 @@ class SchedulePersistenceAdapter(
                 schedule.alarmTime.eq(alarmTime)
             )
             .fetch()
-            .mapNonNull(scheduleMapper::toDomain)
+            .map(scheduleMapper::toDomainNotNull)
     }
 
 
