@@ -34,6 +34,12 @@ abstract class UserMapper : GenericMapper<UserJpaEntity, User> {
     abstract override fun toDomain(entity: UserJpaEntity?): User?
 
     @Mappings(
+        Mapping(target = "spotId", expression = "java(entity.getSpot().getId())"),
+        Mapping(target = "teamId", expression = "java(entity.getTeam().getId())")
+    )
+    abstract override fun toDomainNotNull(entity: UserJpaEntity): User
+
+    @Mappings(
         Mapping(target = "spot", expression = "java(spotJpaRepository.findById(model.getSpotId()).orElse(null))"),
         Mapping(target = "team", expression = "java(teamJpaRepository.findById(model.getTeamId()).orElse(null))")
     )
