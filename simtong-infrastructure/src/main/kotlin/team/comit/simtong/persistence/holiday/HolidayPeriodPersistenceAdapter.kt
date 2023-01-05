@@ -1,4 +1,4 @@
-package team.comit.simtong.persistence
+package team.comit.simtong.persistence.holiday
 
 import org.springframework.stereotype.Component
 import team.comit.simtong.domain.holiday.model.HolidayPeriod
@@ -23,7 +23,7 @@ class HolidayPeriodPersistenceAdapter(
 
     override fun queryHolidayPeriodsByEndAt(endAt: LocalDate): List<HolidayPeriod> {
         return holidayPeriodJpaRepository.queryHolidayPeriodJpaEntitiesByEndAt(endAt)
-            .mapNotNull(holidayPeriodMapper::toDomain)
+            .map(holidayPeriodMapper::toDomainNotNull)
     }
 
 }

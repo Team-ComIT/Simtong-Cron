@@ -34,6 +34,12 @@ abstract class ScheduleMapper : GenericMapper<ScheduleJpaEntity, Schedule> {
     abstract override fun toDomain(entity: ScheduleJpaEntity?): Schedule?
 
     @Mappings(
+        Mapping(target = "userId", expression = "java(entity.getUser().getId())"),
+        Mapping(target = "spotId", expression = "java(entity.getSpot().getId())")
+    )
+    abstract override fun toDomainNotNull(entity: ScheduleJpaEntity): Schedule
+
+    @Mappings(
         Mapping(target = "user", expression = "java(userJpaRepository.findById(model.getUserId()).orElse(null))"),
         Mapping(target= "spot", expression = "java(spotJpaRepository.findById(model.getSpotId()).orElse(null))")
     )

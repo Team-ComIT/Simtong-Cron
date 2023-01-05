@@ -35,6 +35,13 @@ abstract class HolidayMapper : GenericMapper<HolidayJpaEntity, Holiday> {
     abstract override fun toDomain(entity: HolidayJpaEntity?): Holiday?
 
     @Mappings(
+        Mapping(target = "userId", expression = "java(entity.getId().getUserId())"),
+        Mapping(target = "spotId", expression = "java(entity.getSpot().getId())"),
+        Mapping(target = "date", expression = "java(entity.getId().getDate())")
+    )
+    abstract override fun toDomainNotNull(entity: HolidayJpaEntity): Holiday
+
+    @Mappings(
         Mapping(target = "user", expression = "java(userJpaRepository.findById(model.getUserId()).orElse(null))"),
         Mapping(target = "spot", expression = "java(spotJpaRepository.findById(model.getSpotId()).orElse(null))"),
         Mapping(target = "id", expression = "java(new HolidayJpaEntity.Id(model.getDate(), model.getUserId()))")
