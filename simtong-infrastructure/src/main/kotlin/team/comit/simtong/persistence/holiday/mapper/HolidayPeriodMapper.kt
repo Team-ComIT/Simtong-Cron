@@ -1,6 +1,7 @@
 package team.comit.simtong.persistence.holiday.mapper
 
 import org.springframework.data.repository.findByIdOrNull
+import org.springframework.stereotype.Component
 import team.comit.simtong.domain.holiday.model.HolidayPeriod
 import team.comit.simtong.persistence.GenericMapper
 import team.comit.simtong.persistence.holiday.entity.HolidayPeriodJpaEntity
@@ -14,6 +15,7 @@ import team.comit.simtong.persistence.spot.repository.SpotJpaRepository
  * @date 2022/12/20
  * @version 1.0.0
  **/
+@Component
 class HolidayPeriodMapper(
     private val spotJpaRepository: SpotJpaRepository
 ) : GenericMapper<HolidayPeriodJpaEntity, HolidayPeriod> {
