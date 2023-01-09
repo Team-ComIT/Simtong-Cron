@@ -11,7 +11,7 @@ import java.time.LocalDate
 
 /**
  *
- * 오늘의 메뉴 공지 작업을 담당하는 NoticeTodayMealJob
+ * 오늘의 메뉴 공지 작업을 담당하는 NoticeTodayMenuJob
  *
  * @author Chokyunghyeon
  * @date 2023/01/09
@@ -25,9 +25,7 @@ class NoticeTodayMenuJob(
 ) {
 
     fun execute() {
-        val today: LocalDate = LocalDate.now()
-
-        val menus: List<Menu> = queryMenuPort.queryMenusByDate(today)
+        val menus: List<Menu> = queryMenuPort.queryMenusByDate(LocalDate.now())
 
         menus.forEach {
             val employees = queryUserPort.queryUsersBySpotId(it.spotId)
