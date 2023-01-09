@@ -2,6 +2,7 @@ package team.comit.simtong.scheduler.menu
 
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Component
+import team.comit.simtong.domain.menu.job.NoticeTodayMenuJob
 import team.comit.simtong.scheduler.CronExpressions
 
 /**
@@ -13,11 +14,13 @@ import team.comit.simtong.scheduler.CronExpressions
  * @version 1.0.0
  **/
 @Component
-class MenuJobScheduler {
+class MenuJobScheduler(
+    private val noticeTodayMenuJob: NoticeTodayMenuJob
+) {
 
     @Scheduled(cron = CronExpressions.EVERYDAY_12)
     fun noticeLunch() {
-
+        noticeTodayMenuJob.execute()
     }
 
 }
