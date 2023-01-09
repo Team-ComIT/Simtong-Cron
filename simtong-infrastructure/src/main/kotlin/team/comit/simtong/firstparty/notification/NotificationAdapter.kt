@@ -1,6 +1,8 @@
 package team.comit.simtong.firstparty.notification
 
 import org.springframework.stereotype.Component
+import team.comit.simtong.domain.holiday.outbound.port.HolidayPeriodSendNotificationPort
+import team.comit.simtong.domain.menu.outbound.port.MenuSendNotificationPort
 import team.comit.simtong.domain.notification.NotificationType
 import team.comit.simtong.domain.schedule.outbound.port.ScheduleSendNotificationPort
 import team.comit.simtong.firstparty.notification.dto.SendMulticastNotificationRequest
@@ -18,7 +20,7 @@ import java.util.UUID
 @Component
 class NotificationAdapter(
     private val notificationClient: NotificationClient
-) : ScheduleSendNotificationPort {
+) : ScheduleSendNotificationPort, HolidayPeriodSendNotificationPort, MenuSendNotificationPort {
 
     override fun sendMessage(
         title: String,

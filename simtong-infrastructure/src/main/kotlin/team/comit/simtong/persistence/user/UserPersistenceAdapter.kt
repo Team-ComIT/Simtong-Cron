@@ -1,6 +1,8 @@
 package team.comit.simtong.persistence.user
 
 import org.springframework.stereotype.Component
+import team.comit.simtong.domain.holiday.outbound.port.HolidayPeriodQueryUserPort
+import team.comit.simtong.domain.menu.outbound.port.MenuQueryUserPort
 import team.comit.simtong.domain.schedule.outbound.port.ScheduleQueryUserPort
 import team.comit.simtong.domain.user.model.User
 import team.comit.simtong.global.extension.CollectionExtensionUtils.mapNonNull
@@ -20,7 +22,7 @@ import java.util.UUID
 class UserPersistenceAdapter(
     private val userJpaRepository: UserJpaRepository,
     private val userMapper: UserMapper
-) : ScheduleQueryUserPort {
+) : ScheduleQueryUserPort, HolidayPeriodQueryUserPort, MenuQueryUserPort {
 
     override fun queryUsersBySpotId(spotId: UUID): List<User> {
         return userJpaRepository.queryUserJpaEntitiesBySpotId(spotId)
