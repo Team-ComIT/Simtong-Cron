@@ -17,7 +17,7 @@ interface ScheduleSendNotificationPort {
         title: String,
         content: String,
         type: NotificationType,
-        identify: UUID? = null,
+        identify: UUID?,
         userId: UUID
     )
 
@@ -25,7 +25,7 @@ interface ScheduleSendNotificationPort {
         title: String,
         content: String,
         type: NotificationType,
-        identify: UUID? = null,
+        identify: UUID?,
         userIds: List<UUID>
     )
 

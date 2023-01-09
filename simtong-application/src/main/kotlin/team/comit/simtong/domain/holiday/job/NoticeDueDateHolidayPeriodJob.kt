@@ -34,7 +34,8 @@ class NoticeDueDateHolidayPeriodJob(
                 title = "휴무표 작성 마감일이에요!",
                 content = "오늘은 ${it.month}월 휴무표 작성 마감일입니다. 아직 휴무표를 작성하지 않으셨다면 서둘러 휴무표를 작성해주세요!",
                 type = NotificationType.HOLIDAY,
-                userIds = users.map(User::id)
+                userIds = users.map(User::id),
+                identify = null
             )
         }
     }

@@ -25,7 +25,7 @@ interface HolidayPeriodSendNotificationPort {
         title: String,
         content: String,
         type: NotificationType,
-        identify: UUID? = null,
+        identify: UUID?,
         userIds: List<UUID>
     )
 

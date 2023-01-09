@@ -51,7 +51,8 @@ class NoticeTomorrowScheduleJob(
                 title = "내일의 일정이에요!",
                 content = message,
                 type = NotificationType.SCHEDULE,
-                userId = userId
+                userId = userId,
+                identify = null
             )
         }
 
@@ -70,7 +71,8 @@ class NoticeTomorrowScheduleJob(
                 title = "내일의 전체 일정이에요!",
                 content = message,
                 type = NotificationType.SCHEDULE,
-                userIds = employees.map(User::id)
+                userIds = employees.map(User::id),
+                identify = null
             )
         }
     }
