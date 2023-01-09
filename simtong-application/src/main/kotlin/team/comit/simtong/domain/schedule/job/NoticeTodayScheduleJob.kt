@@ -30,9 +30,8 @@ class NoticeTodayScheduleJob(
 
         val schedules: List<Schedule> = querySchedulePort.queryScheduleByDateAndAlarmTime(today, LocalTime.now())
 
-        val individualSchedules: List<Schedule> = schedules.filter { it.scope == Schedule.Scope.INDIVIDUAL }
-
-        val entireSchedules: List<Schedule> = schedules.filter { it.scope == Schedule.Scope.ENTIRE }
+        val (individualSchedules, entireSchedules) = schedules
+            .partition { it.scope == Schedule.Scope.INDIVIDUAL }
 
         individualSchedules.forEach { schedule: Schedule ->
             sendNotificationPort.sendMessage(
