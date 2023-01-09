@@ -21,23 +21,11 @@ dependencies {
     implementation(Dependencies.QUERYDSL)
     kapt(Dependencies.QUERYDSL_PROCESSOR)
 
-    // mapstruct
-    implementation(Dependencies.MAPSTRUCT)
-    kapt(Dependencies.MAPSTRUCT_PROCESSOR)
-
     // openfeign
     implementation(Dependencies.OPEN_FEIGN)
 
     // configuration
     annotationProcessor(Dependencies.CONFIGURATION_PROCESSOR)
-}
-
-kapt {
-    arguments {
-        arg("mapstruct.defaultComponentModel", "spring")
-        arg("mapstruct.unmappedTargetPolicy", "ignore")
-        arg("scheduling.defaultZone", "Asia/Seoul")
-    }
 }
 
 allOpen {
