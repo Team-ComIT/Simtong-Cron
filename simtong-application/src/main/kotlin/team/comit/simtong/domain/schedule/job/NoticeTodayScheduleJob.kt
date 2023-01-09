@@ -38,7 +38,8 @@ class NoticeTodayScheduleJob(
                 title = "오늘의 일정이에요!",
                 content = "오늘 ${today.month}월 ${today.dayOfMonth}일 \"${schedule.title}\" 개인 일정이 있습니다.",
                 type = NotificationType.SCHEDULE,
-                userId = schedule.userId
+                userId = schedule.userId,
+                identify = null
             )
         }
 
@@ -49,7 +50,7 @@ class NoticeTodayScheduleJob(
                 title = "오늘의 전체 일정이에요!",
                 content = "오늘 ${today.month}월 ${today.dayOfMonth}일 \"${schedule.title}\" 지점 일정이 있습니다.",
                 type = NotificationType.SCHEDULE,
-                identify = schedule.id,
+                identify = null,
                 userIds = employees.map(User::id)
             )
         }
