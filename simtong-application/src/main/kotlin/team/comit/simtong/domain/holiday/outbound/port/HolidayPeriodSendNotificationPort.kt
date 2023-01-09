@@ -13,14 +13,6 @@ import java.util.UUID
  **/
 interface HolidayPeriodSendNotificationPort {
 
-    fun sendMessage(
-        title: String,
-        content: String,
-        type: NotificationType,
-        identify: UUID? = null,
-        userId: UUID
-    )
-
     fun sendMulticastMessage(
         title: String,
         content: String,

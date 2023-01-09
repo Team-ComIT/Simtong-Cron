@@ -3,7 +3,6 @@ package team.comit.simtong.persistence.user
 import org.springframework.stereotype.Component
 import team.comit.simtong.domain.schedule.outbound.port.ScheduleQueryUserPort
 import team.comit.simtong.domain.user.model.User
-import team.comit.simtong.global.extension.CollectionExtensionUtils.mapNonNull
 import team.comit.simtong.persistence.user.mapper.UserMapper
 import team.comit.simtong.persistence.user.repository.UserJpaRepository
 import java.util.UUID

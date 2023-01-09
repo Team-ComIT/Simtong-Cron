@@ -30,12 +30,13 @@ class NoticeTomorrowScheduleJob(
 
         val schedules: List<Schedule> = querySchedulePort.queryScheduleByDate(tomorrow)
 
-        val individualScheduleMap: Map<UUID, List<Schedule>> = schedules
-            .filter { it.scope == Schedule.Scope.INDIVIDUAL }
+        val (individualSchedules, entireSchedules) = schedules
+            .partition { it.scope == Schedule.Scope.INDIVIDUAL }
+
+        val individualScheduleMap: Map<UUID, List<Schedule>> = individualSchedules
             .groupBy(Schedule::userId)
 
-        val entireScheduleMap: Map<UUID, List<Schedule>> = schedules
-            .filter { it.scope == Schedule.Scope.ENTIRE }
+        val entireScheduleMap: Map<UUID, List<Schedule>> = entireSchedules
             .groupBy(Schedule::spotId)
 
         individualScheduleMap.forEach { (userId: UUID, schedules: List<Schedule>) ->
