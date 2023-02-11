@@ -3,6 +3,7 @@ package team.comit.simtong.scheduler.holiday
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Component
 import team.comit.simtong.domain.holiday.job.NoticeDueDateHolidayPeriodJob
+import team.comit.simtong.domain.holiday.job.NoticeHolidayPeriodDeadlineBeforeOneHourJob
 import team.comit.simtong.scheduler.CronExpressions
 
 /**
@@ -15,7 +16,8 @@ import team.comit.simtong.scheduler.CronExpressions
  **/
 @Component
 class HolidayJobScheduler(
-    private val noticeDueDateHolidayPeriodJob: NoticeDueDateHolidayPeriodJob
+    private val noticeDueDateHolidayPeriodJob: NoticeDueDateHolidayPeriodJob,
+    private val noticeHolidayPeriodDeadlineBeforeOneHourJob: NoticeHolidayPeriodDeadlineBeforeOneHourJob
 ) {
 
     @Scheduled(cron = CronExpressions.EVERYDAY_12_30)
@@ -24,12 +26,12 @@ class HolidayJobScheduler(
     }
 
     @Scheduled(cron = CronExpressions.EVERYDAY_23)
-    fun noticeHolidayPeriodDeadLineBeforeOneHour() {
-
+    fun noticeHolidayPeriodDeadlineBeforeOneHour() {
+        noticeHolidayPeriodDeadlineBeforeOneHourJob.execute()
     }
 
     @Scheduled(cron = CronExpressions.EVERYDAY_0)
-    fun endHolidayPeriodDeadline() {
+    fun noticeHolidayPeriodEnd() {
 
     }
 }
