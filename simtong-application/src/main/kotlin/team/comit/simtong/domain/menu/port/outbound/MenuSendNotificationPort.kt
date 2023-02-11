@@ -1,17 +1,17 @@
-package team.comit.simtong.domain.holiday.outbound.port
+package team.comit.simtong.domain.menu.port.outbound
 
 import team.comit.simtong.domain.notification.NotificationType
 import java.util.UUID
 
 /**
  *
- * 휴무표 작성 기간에서 알림 전송을 담당하는 HolidayPeriodSendNotificationPort
+ * 메뉴 Domain에서 알림을 전송 요청하는 MenuSendNotificationPort
  *
  * @author Chokyunghyeon
- * @date 2023/01/02
+ * @date 2023/01/09
  * @version 1.0.0
  **/
-interface HolidayPeriodSendNotificationPort {
+interface MenuSendNotificationPort {
 
     fun sendMulticastMessage(
         title: String,
@@ -20,5 +20,4 @@ interface HolidayPeriodSendNotificationPort {
         identify: UUID?,
         userIds: List<UUID>
     )
-
 }

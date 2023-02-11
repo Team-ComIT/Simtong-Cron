@@ -1,9 +1,9 @@
 package team.comit.simtong.domain.menu.job
 
 import team.comit.simtong.domain.menu.model.Menu
-import team.comit.simtong.domain.menu.outbound.port.MenuQueryUserPort
-import team.comit.simtong.domain.menu.outbound.port.MenuSendNotificationPort
-import team.comit.simtong.domain.menu.outbound.port.QueryMenuPort
+import team.comit.simtong.domain.menu.port.outbound.MenuQueryUserPort
+import team.comit.simtong.domain.menu.port.outbound.MenuSendNotificationPort
+import team.comit.simtong.domain.menu.port.outbound.QueryMenuPort
 import team.comit.simtong.domain.notification.NotificationType
 import team.comit.simtong.domain.user.model.User
 import team.comit.simtong.global.annotation.ReadOnlyJob

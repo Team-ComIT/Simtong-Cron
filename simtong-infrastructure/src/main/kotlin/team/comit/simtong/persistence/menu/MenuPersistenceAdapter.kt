@@ -3,7 +3,7 @@ package team.comit.simtong.persistence.menu
 import com.querydsl.jpa.impl.JPAQueryFactory
 import org.springframework.stereotype.Component
 import team.comit.simtong.domain.menu.model.Menu
-import team.comit.simtong.domain.menu.outbound.port.QueryMenuPort
+import team.comit.simtong.domain.menu.port.outbound.QueryMenuPort
 import team.comit.simtong.persistence.menu.entity.QMenuJpaEntity.menuJpaEntity as menu
 import team.comit.simtong.persistence.menu.mapper.MenuMapper
 import java.time.LocalDate

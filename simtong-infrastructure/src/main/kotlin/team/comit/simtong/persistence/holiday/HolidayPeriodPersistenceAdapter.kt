@@ -2,7 +2,7 @@ package team.comit.simtong.persistence.holiday
 
 import org.springframework.stereotype.Component
 import team.comit.simtong.domain.holiday.model.HolidayPeriod
-import team.comit.simtong.domain.holiday.outbound.port.QueryHolidayPeriodPort
+import team.comit.simtong.domain.holiday.port.outbound.QueryHolidayPeriodPort
 import team.comit.simtong.persistence.holiday.mapper.HolidayPeriodMapper
 import team.comit.simtong.persistence.holiday.repository.HolidayPeriodJpaRepository
 import java.time.LocalDate
