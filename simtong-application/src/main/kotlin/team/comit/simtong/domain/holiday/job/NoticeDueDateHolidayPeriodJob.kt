@@ -1,9 +1,9 @@
 package team.comit.simtong.domain.holiday.job
 
 import team.comit.simtong.domain.holiday.model.HolidayPeriod
-import team.comit.simtong.domain.holiday.outbound.port.HolidayPeriodQueryUserPort
-import team.comit.simtong.domain.holiday.outbound.port.HolidayPeriodSendNotificationPort
-import team.comit.simtong.domain.holiday.outbound.port.QueryHolidayPeriodPort
+import team.comit.simtong.domain.holiday.port.outbound.HolidayPeriodQueryUserPort
+import team.comit.simtong.domain.holiday.port.outbound.HolidayPeriodSendNotificationPort
+import team.comit.simtong.domain.holiday.port.outbound.QueryHolidayPeriodPort
 import team.comit.simtong.domain.notification.NotificationType
 import team.comit.simtong.domain.user.model.User
 import team.comit.simtong.global.annotation.ReadOnlyJob
@@ -32,7 +32,7 @@ class NoticeDueDateHolidayPeriodJob(
 
             sendNotificationPort.sendMulticastMessage(
                 title = "휴무표 작성 마감일이에요!",
-                content = "오늘은 ${it.month}월 휴무표 작성 마감일입니다. 아직 휴무표를 작성하지 않으셨다면 서둘러 휴무표를 작성해주세요!",
+                content = "오늘은 ${it.month}월 휴무표 작성 마감일입니다. 아직 휴무표를 작성하지 않으셨다면 서둘러 휴무표를 작성해주세요.",
                 type = NotificationType.HOLIDAY,
                 userIds = users.map(User::id),
                 identify = null
