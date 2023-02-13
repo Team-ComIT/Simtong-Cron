@@ -11,11 +11,6 @@ package team.comit.simtong.scheduler
 object CronExpressions {
 
     /**
-     * 매일 0시
-     */
-    const val EVERYDAY_0 = "0 0 0 * * *"
-
-    /**
      * 매일 23시 00분
      */
     const val EVERYDAY_23 = "0 0 23 * * *"

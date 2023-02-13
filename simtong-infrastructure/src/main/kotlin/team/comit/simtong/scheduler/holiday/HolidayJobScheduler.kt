@@ -29,9 +29,4 @@ class HolidayJobScheduler(
     fun noticeHolidayPeriodDeadlineBeforeOneHour() {
         noticeHolidayPeriodDeadlineBeforeOneHourJob.execute()
     }
-
-    @Scheduled(cron = CronExpressions.EVERYDAY_0)
-    fun noticeHolidayPeriodEnd() {
-
-    }
 }
