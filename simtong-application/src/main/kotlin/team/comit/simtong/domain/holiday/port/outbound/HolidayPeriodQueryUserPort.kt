@@ -1,4 +1,4 @@
-package team.comit.simtong.domain.holiday.outbound.port
+package team.comit.simtong.domain.holiday.port.outbound
 
 import team.comit.simtong.domain.user.model.User
 import java.util.UUID

@@ -1,9 +1,9 @@
 package team.comit.simtong.persistence.user
 
 import org.springframework.stereotype.Component
-import team.comit.simtong.domain.holiday.outbound.port.HolidayPeriodQueryUserPort
-import team.comit.simtong.domain.menu.outbound.port.MenuQueryUserPort
-import team.comit.simtong.domain.schedule.outbound.port.ScheduleQueryUserPort
+import team.comit.simtong.domain.holiday.port.outbound.HolidayPeriodQueryUserPort
+import team.comit.simtong.domain.menu.port.outbound.MenuQueryUserPort
+import team.comit.simtong.domain.schedule.port.outbound.ScheduleQueryUserPort
 import team.comit.simtong.domain.user.model.User
 import team.comit.simtong.persistence.user.mapper.UserMapper
 import team.comit.simtong.persistence.user.repository.UserJpaRepository

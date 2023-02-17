@@ -1,10 +1,10 @@
 package team.comit.simtong.firstparty.notification
 
 import org.springframework.stereotype.Component
-import team.comit.simtong.domain.holiday.outbound.port.HolidayPeriodSendNotificationPort
-import team.comit.simtong.domain.menu.outbound.port.MenuSendNotificationPort
+import team.comit.simtong.domain.holiday.port.outbound.HolidayPeriodSendNotificationPort
+import team.comit.simtong.domain.menu.port.outbound.MenuSendNotificationPort
 import team.comit.simtong.domain.notification.NotificationType
-import team.comit.simtong.domain.schedule.outbound.port.ScheduleSendNotificationPort
+import team.comit.simtong.domain.schedule.port.outbound.ScheduleSendNotificationPort
 import team.comit.simtong.firstparty.notification.dto.SendMulticastNotificationRequest
 import team.comit.simtong.firstparty.notification.dto.SendNotificationRequest
 import java.util.UUID

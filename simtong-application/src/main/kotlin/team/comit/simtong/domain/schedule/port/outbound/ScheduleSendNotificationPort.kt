@@ -1,4 +1,4 @@
-package team.comit.simtong.domain.schedule.outbound.port
+package team.comit.simtong.domain.schedule.port.outbound
 
 import team.comit.simtong.domain.notification.NotificationType
 import java.util.UUID

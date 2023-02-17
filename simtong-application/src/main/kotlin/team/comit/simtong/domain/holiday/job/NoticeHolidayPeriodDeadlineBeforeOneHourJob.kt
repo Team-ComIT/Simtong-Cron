@@ -11,17 +11,17 @@ import java.time.LocalDate
 
 /**
  *
- * 휴무표 작성 기간의 종료일 공지를 담당하는 NoticeDueDateHolidayPeriodJob
+ * 휴무일 작성 기간 마감 1시간 전 공지를 담당하는 NoticeHolidayPeriodDeadlineBeforeOneHourJob
  *
  * @author Chokyunghyeon
- * @date 2023/01/02
+ * @date 2023/02/11
  * @version 1.0.0
  **/
 @ReadOnlyJob
-class NoticeDueDateHolidayPeriodJob(
+class NoticeHolidayPeriodDeadlineBeforeOneHourJob(
     private val queryHolidayPeriodPort: QueryHolidayPeriodPort,
-    private val sendNotificationPort: HolidayPeriodSendNotificationPort,
-    private val queryUserPort: HolidayPeriodQueryUserPort
+    private val queryUserPort: HolidayPeriodQueryUserPort,
+    private val sendNotificationPort: HolidayPeriodSendNotificationPort
 ) {
 
     fun execute() {
@@ -31,8 +31,8 @@ class NoticeDueDateHolidayPeriodJob(
             val users: List<User> = queryUserPort.queryUsersBySpotId(it.spotId)
 
             sendNotificationPort.sendMulticastMessage(
-                title = "휴무표 작성 마감일이에요!",
-                content = "오늘은 ${it.month}월 휴무표 작성 마감일입니다. 아직 휴무표를 작성하지 않으셨다면 서둘러 휴무표를 작성해주세요.",
+                title = "휴무표 작성 마감 1시간 전이에요!",
+                content = "오늘은 ${it.month}월 휴무표 작성 마감 1시간 전 입니다. 아직 휴무표를 작성하지 않으셨다면 서둘러 휴무표를 작성해 주세요.",
                 type = NotificationType.HOLIDAY,
                 userIds = users.map(User::id),
                 identify = null

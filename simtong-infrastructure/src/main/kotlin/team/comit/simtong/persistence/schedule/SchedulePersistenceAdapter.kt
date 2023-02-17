@@ -4,7 +4,7 @@ import team.comit.simtong.persistence.schedule.entity.QScheduleJpaEntity.schedul
 import com.querydsl.jpa.impl.JPAQueryFactory
 import org.springframework.stereotype.Component
 import team.comit.simtong.domain.schedule.model.Schedule
-import team.comit.simtong.domain.schedule.outbound.port.QuerySchedulePort
+import team.comit.simtong.domain.schedule.port.outbound.QuerySchedulePort
 import team.comit.simtong.persistence.schedule.mapper.ScheduleMapper
 import java.time.LocalDate
 import java.time.LocalTime
